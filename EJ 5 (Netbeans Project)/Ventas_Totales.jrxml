@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ventas_Totales" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36dece1f-bef0-4360-8713-f2ad2a217890">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[IlBST0RVQ1QiIEFTICwzNyw2OSwyNjQ1OTg2Zi1hMWY5LTQ1MGItOGUwOC0zZDhkNDY3MzE0YWQ7
+IlBPU0lUSU9OUyIgQVMgLDE0Niw1MCwwODljNTQyMy1hODQyLTRiYzEtOWQ0Mi0xMTY4MzJkNDc1
+MTQ7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT "PRODUCT"."NAME",
+	"PRODUCT"."COST",
+	"POSITIONS"."PRICE",
+	"POSITIONS"."QUANTITY"
+FROM "POSITIONS"
+	INNER JOIN "PRODUCT" ON 
+	 "PRODUCT"."ID" = "POSITIONS"."DOCUMENTID"]]>
+	</queryString>
+	<field name="NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCT"/>
+	</field>
+	<field name="COST" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="COST"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCT"/>
+	</field>
+	<field name="PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PRICE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<field name="QUANTITY" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="QUANTITY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="20" y="0" width="550" height="38" uuid="edae3a24-d7a1-4b80-b218-d54c5cad38de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VENTAS TOTALES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="332" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement isPrintRepeatedValues="false" x="0" y="45" width="545" height="260" uuid="7d80c432-5870-466f-ab5b-3a0fb5210ffa"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{NAME}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{PRICE}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{QUANTITY}]]></valueExpression>
+						<labelExpression><![CDATA["kilolo"]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="78" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="40" width="120" height="30" uuid="9eae6485-981d-4d10-99c9-48c7934a17e7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="0" width="100" height="30" uuid="c56b7024-754b-4e0e-9710-e1b0bb91b174"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="100" height="30" uuid="17a964ca-31e3-44b9-8850-5b632107f4ce"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="40" width="190" height="30" uuid="fcf0d684-e00e-4ed2-a8f7-938efc3a7723"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{QUANTITY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

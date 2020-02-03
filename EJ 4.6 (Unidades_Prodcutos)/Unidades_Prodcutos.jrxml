@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Unidades_Prodcutos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b33ce29e-53fc-40b1-aed7-3ef94440d6c4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM positions ORDER BY productid
+]]>
+	</queryString>
+	<field name="DOCUMENTID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="DOCUMENTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<field name="POSITIONNO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="POSITIONNO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<field name="PRODUCTID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="PRODUCTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<field name="QUANTITY" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="QUANTITY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<field name="PRICE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PRICE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="POSITIONS"/>
+	</field>
+	<variable name="QUANTITY1" class="java.lang.Integer" resetType="Group" resetGroup="Productos" calculation="Average">
+		<variableExpression><![CDATA[$F{QUANTITY}]]></variableExpression>
+	</variable>
+	<variable name="QUANTITY2" class="java.lang.Integer" resetType="Group" resetGroup="Productos" calculation="Lowest">
+		<variableExpression><![CDATA[$F{QUANTITY}]]></variableExpression>
+	</variable>
+	<variable name="QUANTITY3" class="java.lang.Integer" resetType="Group" resetGroup="Productos" calculation="Highest">
+		<variableExpression><![CDATA[$F{QUANTITY}]]></variableExpression>
+	</variable>
+	<group name="Productos">
+		<groupExpression><![CDATA[$F{PRODUCTID}]]></groupExpression>
+		<groupHeader>
+			<band height="55">
+				<textField>
+					<reportElement mode="Opaque" x="86" y="13" width="100" height="30" backcolor="#C9C7C7" uuid="723a39a0-a14f-4a72-ac89-f80ca4ab74de"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PRODUCTID}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="190" y="11" width="100" height="30" uuid="176b8c28-9fb7-4fe2-b06e-426d89138b0d"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{PRICE}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="126">
+				<textField>
+					<reportElement mode="Transparent" x="330" y="0" width="100" height="30" forecolor="#F25F5C" backcolor="#ED6461" uuid="469d01fa-2193-4ddd-873f-ef6bbe3abc75"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{QUANTITY}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Transparent" x="330" y="30" width="100" height="30" forecolor="#F25F5C" backcolor="#ED6461" uuid="d028d202-ea2b-4932-a138-f745d165a797"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{QUANTITY1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Transparent" x="330" y="60" width="100" height="30" forecolor="#F25F5C" backcolor="#ED6461" uuid="0e75ae15-cac2-480f-acc9-931b86092d94"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{QUANTITY2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Transparent" x="330" y="90" width="100" height="30" forecolor="#F25F5C" backcolor="#ED6461" uuid="5e1fb07d-5f34-4477-b2ea-ba640a68c4cc"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{QUANTITY3}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="180" y="0" width="140" height="30" uuid="bd330f27-4c26-4901-891c-b4c0575f17a0"/>
+					<textElement>
+						<font size="14" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Total de unidades:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="30" width="140" height="30" uuid="15f25f04-28c2-464b-8e55-2130d3f27512"/>
+					<textElement>
+						<font size="14" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Media de unidades:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="60" width="140" height="30" uuid="e0d39b58-a9f2-466c-a150-0198e42e0c08"/>
+					<textElement>
+						<font size="14" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Cantidad menor:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="181" y="89" width="140" height="30" uuid="dd3fe26d-bbae-4c44-9262-fbda55a82e08"/>
+					<textElement>
+						<font size="14" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Cantidad mayor:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="31" width="400" height="48" uuid="358fdd8b-3aa0-4398-97d6-edf8f18e42a1"/>
+				<textElement textAlignment="Center">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal de productos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="10" width="100" height="30" uuid="448d6a47-48f2-41ad-ba03-084f1ff0eb99"/>
+				<textFieldExpression><![CDATA[$F{DOCUMENTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="10" width="100" height="30" uuid="2756dc9d-ec8e-44c3-adb1-a6620e96b47a"/>
+				<textFieldExpression><![CDATA[$F{POSITIONNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="10" width="100" height="30" uuid="7ae5de20-0f37-43f3-9e18-363b41830917"/>
+				<textFieldExpression><![CDATA[$F{QUANTITY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

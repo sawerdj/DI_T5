@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contactos1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9744f1c8-70d5-408c-b514-a08a392ad3e4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="HSQLSB"/>
+	<parameter name="ID_CONTACTO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM CORREOS WHERE ID_CONTACTO= $P{ID_CONTACTO}
+]]>
+	</queryString>
+	<field name="ID_CORREO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ID_CORREO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CORREOS"/>
+	</field>
+	<field name="ID_CONTACTO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ID_CONTACTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CORREOS"/>
+	</field>
+	<field name="CORREO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CORREO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CORREOS"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="30" width="360" height="49" backcolor="#FFE84F" uuid="b0c8bdcc-ce0f-4935-aff3-efdeec714248"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIONES DE CORREO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="20" width="100" height="30" uuid="b6657170-1856-458b-b229-779e6423eea9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a75939b-70eb-48ea-b37b-779d0174713a"/>
+				</reportElement>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
