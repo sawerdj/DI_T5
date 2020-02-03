@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox id="AnchorPane" prefHeight="200" prefWidth="450" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appinformes.FXMLDocumentController">
+<MenuBar fx:id="menuBar">
+      <menus>
+         <Menu text="Informes">
+            <items>
+               <MenuItem fx:id="listFacturas" onAction="#listadoFacturas" text="Listado de Facturas" />
+               <MenuItem fx:id="ventTotal" onAction="#ventaTotal" text="Ventas totales" />
+               <MenuItem fx:id="facturaCliente" onAction="#facturaCliente" text="Facturas por Cliente" />
+               <MenuItem fx:id="SubInfor" onAction="#subInfor" text="Subinforme listado Facturas" />
+               <SeparatorMenuItem />
+               <MenuItem fx:id="salir" text="Salir" />
+            </items>
+         </Menu>
+         <Menu text="Edita">
+            <items>
+               <MenuItem text="Copia" />
+               <MenuItem text="Corta" />
+               <MenuItem text="Pega" />
+            </items>
+         </Menu>
+         <Menu text="Ayuda">
+            <items>
+               <MenuItem disable="true" text="Buscar" />
+               <MenuItem text="Manual en Web" visible="false" />
+               <SeparatorMenuItem />
+               <MenuItem text="Nosotros" />
+            </items>
+         </Menu>
+      </menus>
+   </MenuBar>
+</VBox>
